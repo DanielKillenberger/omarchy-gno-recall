@@ -23,6 +23,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check panel focus release
+        run: node scripts/test-panel-focus.mjs
       - name: Check shell syntax
         run: |
           for script in scripts/*.sh; do bash -n "$script"; done
